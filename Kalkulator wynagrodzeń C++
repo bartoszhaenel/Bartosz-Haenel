@@ -1,0 +1,83 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int LG, SG;
+int main()
+{
+	int LG, SG;
+
+	double roczne;
+	double podatek = 0.81;
+	double podatekk = 0.79;
+	double podatekkk = 0.72;
+	double popodatku;
+	double miesiac;
+	double roznica;	
+	char wybor = ' ';
+
+	cout <<"Podaj liczbe godzin: ";
+	cin >> LG;
+	cout << "Podaj stawke godzinowa: ";
+	cin >> SG;
+
+	double iloczyn = LG*SG;
+
+	
+	
+    	if (LG > 40){
+    		double iloczyn = (40*SG)+((LG-40)*2)*SG;
+    		cout << "Zarobek z nadgodzinami: "<<iloczyn <<endl;
+		}	
+
+		else {
+			
+		double mnozenie= (LG*SG)*52;
+    	cout << "Tygodniowka: "<<iloczyn <<endl;
+		}
+	
+		miesiac = iloczyn * 4;
+		roczne = miesiac * 12;
+        cout << "Czy chcesz zobaczyc twoje miesieczne wynagrodzenie T/t?" << endl;
+        cin >> wybor;
+        if (wybor == 't' || wybor == 'T') {
+            
+            cout << "Twoje miesieczne wynagrodzenie " << miesiac << endl;
+        }
+        
+        
+		
+	
+		cout << "Twoje roczne wynagrodzenie brutto: " << roczne << endl;
+	
+		if (roczne < 20000) { 															
+			
+			popodatku = roczne * podatek;
+			roznica  = roczne - popodatku;
+			cout << "Roczne wynagrodzenie po odjeciu podatku 19%:  " << popodatku << endl;
+			cout << "Podatek wyniosl: " << roznica << endl;
+		}
+	
+			
+		
+		if ( (roczne > 20000) && (roczne < 30000)) {
+		
+			popodatku = roczne * podatekk;
+			roznica = roczne - popodatku;
+			cout << "Roczne wynagrodzenie po odjeciu podatku 21%: " << popodatku << endl;
+		    cout << "Podatek wyniosl: " << roznica << endl;
+		    
+		}
+		
+		if (roczne > 30000) {  
+		    popodatku = roczne * podatekkk;
+		    roznica = roczne - popodatku;
+		    cout << "Roczne wynagrodzenie po odjeciu podatku 28%: " << popodatku << endl;
+		    cout << "Podatek wynosi: " << roznica << endl;
+		    
+		}
+		
+	return 0;
+	
+	
+}
