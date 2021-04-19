@@ -1,0 +1,258 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <ctime>
+#include <stdlib.h>
+#include <cstdlib>
+#include <stdio.h>
+
+using namespace std;
+
+
+int main()
+{
+
+
+	char start{};
+	system("CLS");
+	cout << "WISIELEC\n";
+	cout << "Autor: Bartosz Haenel \n";
+	cout << "________________________\n";
+	cout << "|              |        |\n";
+	cout << "|              O         \n";
+	cout << "|              |         \n";
+	cout << "|             /|\\       \n";
+	cout << "|            / | \\      \n";
+	cout << "|              |         \n";
+	cout << "|             / \\       \n";
+	cout << "|            /   \\      \n";
+	cout << "|                        \n";
+	cout << "|_______________________ \n";
+	cout << "\n Nacisnij dowolny klawisz by rozpoczac gre \n";
+	cin >> start;
+	system("CLS");
+	int Proby{ 6 }; //liczba odnoszaca sie do ilosci mozliwych bledow 
+	char Guess;
+	bool PoprawnaOdpowiedz = false;
+	char PoprzedniaOdp[7];
+	PoprzedniaOdp[0] = '\0';
+
+	for (int i = 1; i < 6; i++)
+	{
+		(PoprzedniaOdp[i] = '-');
+	}
+	PoprzedniaOdp[6] = '\0';
+	string Word;
+	string WorldList[99];
+
+	srand(time(NULL));
+
+	//randomowe slowa 
+	ifstream LosoweSlowa;
+	LosoweSlowa.open("ListaSlow.txt"); //lista wyrazow 
+
+
+	for (int i = 0; i < 99; i++)
+	{
+		LosoweSlowa >> WorldList[i];
+		cout << WorldList[i];
+
+	}
+	int RandomNum = rand() % 100;
+	Word = WorldList[RandomNum];
+	cout << Word << endl;
+
+	LosoweSlowa.close();
+	string MysteryWord(Word.length(), '*');
+	string sings[30];
+	bool CheckSings[30];
+
+	for (int i = 0; i < 30; i++)
+	{
+		CheckSings[i] = false;
+	}
+	string choose;
+	bool Check = false;
+
+	for (int  i = 0; i < Word.length(); i++)
+	{
+		sings[i] = Word[i];
+	}
+
+	//while (Proby >= 0)
+	//{
+
+		PoprawnaOdpowiedz = false;
+			system("CLS");
+		for(;;)
+		{
+			system("CLS");
+			if (Check)
+			{
+				cout << "Dobrze ! \n" << endl;
+			}
+			
+			
+				switch (Proby) {
+
+				case 5: {
+							cout << "________________________\n";
+							cout << "|              |        |\n";
+							cout << "|              O         \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|_______________________ \n";
+				}break;
+				case 4: {
+							cout << "________________________\n";
+							cout << "|              |        |\n";
+							cout << "|              O         \n";
+							cout << "|              |         \n";
+							cout << "|              |         \n";
+							cout << "|              |         \n";
+							cout << "|              |         \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|_______________________ \n";
+				}break;
+				case 3: {
+							cout << "________________________\n";
+							cout << "|              |        |\n";
+							cout << "|              O         \n";
+							cout << "|              |         \n";
+							cout << "|             /|         \n";
+							cout << "|            / |         \n";
+							cout << "|              |         \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|_______________________ \n";
+				}break;
+				case 2: {
+							cout << "________________________\n";
+							cout << "|              |        |\n";
+							cout << "|              O         \n";
+							cout << "|              |         \n";
+							cout << "|             /|\\       \n";
+							cout << "|            / | \\      \n";
+							cout << "|              |         \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|_______________________ \n";
+				}break;
+				case 1: {
+							cout << "________________________\n";
+							cout << "|              |        |\n";
+							cout << "|              O         \n";
+							cout << "|              |         \n";
+							cout << "|             /|\\       \n";
+							cout << "|            / | \\      \n";
+							cout << "|              |         \n";
+							cout << "|             /          \n";
+							cout << "|            /           \n";
+							cout << "|                        \n";
+							cout << "|_______________________ \n";
+				}break;
+				case 0: {
+							cout << "________________________\n";
+							cout << "|              |        |\n";
+							cout << "|              O         \n";
+							cout << "|              |         \n";
+							cout << "|             /|\\       \n";
+							cout << "|            / | \\      \n";
+							cout << "|              |         \n";
+							cout << "|             / \\       \n";
+							cout << "|            /   \\      \n";
+							cout << "|                        \n";
+							cout << "|_______________________ \n";
+							
+							
+				}break;
+
+
+				default: {
+							cout << "________________________\n";
+							cout << "|                       |\n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|                        \n";
+							cout << "|_______________________ \n";
+				}break;
+				}
+			
+			Check = false;
+			cout << Word << endl;
+			cout << "Twoje slowo to:\n\n";
+			cout << MysteryWord << endl;
+			cout << "\n Haslo ma " << MysteryWord.length() << " liter\n\n";
+			if (Word == MysteryWord)
+			{
+				cout << "Brawo, udalo Ci sie odgadnac haslo";
+				getchar();
+				getchar();
+				
+				return 0;
+			}
+			if (Proby == 0)
+			{
+				cout << "Niestety - Przegralas/es";
+				getchar();
+				getchar();
+				
+				return 0;
+			}
+			cout << "Pozostalo prob: " << Proby << "\n\n";
+			cout << "Podaj litere: ";
+			cin >> choose;
+
+			for (int i = 0; i < Word.length(); i++)
+			{
+				if (choose == sings[i])
+				{
+					Check = true;
+					CheckSings[i] = true;
+				}			
+			}
+
+			if (!Check)
+			{
+				Proby--;
+	
+			}
+			else
+			{
+				MysteryWord = "";
+				for (int i = 0; i < Word.length(); i++)
+				{
+					
+					if (CheckSings[i])
+					{
+						MysteryWord += Word[i];
+					}
+					else
+					{
+						MysteryWord += "*";
+					}
+				}
+				
+			}
+			
+		}
+			
+		 
+
+	return 0;
+}
+
