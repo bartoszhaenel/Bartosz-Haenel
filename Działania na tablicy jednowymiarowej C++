@@ -1,0 +1,58 @@
+
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main ()
+{
+  int n;
+  int i;
+  
+  int roznica;
+  int suma;
+  int c;
+  cout << "Podaj wielkosc tablicy" << endl;
+  cin >> n;
+  
+  int tab[n] = {};
+    
+  for (i = 0; i < n; i++)
+    {
+      cout << "Podaj element tablicy" << endl;
+      cin >> tab[i];
+      
+    }
+    
+  cout << "Pierwszy element tablicy: " << tab[0] << endl;
+
+  cout << "Wszystkie elementy tablicy: ";
+  
+  for (i = 0; i < n; i++)
+    {
+        cout << tab[i] << endl;
+    }
+ roznica = tab[n - 1] - tab[0];
+ cout << "Roznica: " << roznica << endl;
+
+  for (int i = 0; i < n; i++)
+    {
+    suma += tab[i]; 
+    
+    }
+    cout << "Suma liczb w tablicy wynosi: " << suma << endl;
+  
+ 
+ 
+  
+  
+  cout << "Wybierz element tablicy do wyswietlenia wskazujac na jego index" << endl;
+  cout << "Pamietaj ze index zaczyna sie od 0 a nie od 1" << endl;
+  cin >> c;
+  
+  cout << tab[c];
+ 
+ 
+  return 0;
+}
