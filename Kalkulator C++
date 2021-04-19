@@ -1,0 +1,75 @@
+#include <iostream>
+#include <cstdio>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+	int Polecenie, liczba;
+	double a,b;
+	
+	
+	cout <<"Prosty kalkulator" << endl;
+	bool more = true;
+	char kontynuacja = ' ';
+
+	do{ 
+	    Polecenie = int();
+	    liczba = int();
+	    more = false;
+		cout << "[1] Suma" <<endl
+		<< "[2] Sama Kwadratow" << endl
+		<< "[3] Srednia arytmetyczna" <<endl
+		<< "[4] Opusc program" <<endl;
+		
+		cin >> Polecenie;
+
+	
+		switch (Polecenie) {
+			
+			case 1:
+				cout << "Podaj liczbe a:";
+				cin >> a;
+				cout << "Podaj wartosc b";
+				cin >> b;
+				cout << "Wynik sumy" << a+b <<endl; 
+				break;
+			
+			case 2:
+				cout << "Podaj wartosc a:";
+				cin >> a;
+				cout << "Podaj wartosc b: ";
+				cin >> b;
+				cout << "Suma kwadratow" << pow(a, 2) + pow(b, 2)<< endl;
+				break;
+			
+			case 3:
+				cout << "Podaj wartosc a: ";
+				cin >> a;
+				cout << "Podaj wartosc b: ";
+				cin >> b;
+				cout << "Średnia arytmetyczna" << a+b/2 <<endl;
+				break;
+				
+				
+			case 4:
+            break;
+        
+        default:
+            cout << "Nieprawidlowe polecenie." << endl;
+						
+			}
+			cout << "Jezeli chcesz zacząć od nowa nacisnij y/Y\n";
+		//cin.clear();
+		//cin.ignore(1000, '\n');
+		cin >> kontynuacja;
+		
+	
+	}	while (kontynuacja == 'y' || kontynuacja == 'Y');
+	
+
+	cout << "Zegnaj!";
+	
+	return 0;
+}
